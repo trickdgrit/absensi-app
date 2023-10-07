@@ -26,6 +26,7 @@ class EmployeeEditForm extends Component
             $this->employees[] = [
                 'id' => $employee->id,
                 'name' => $employee->name,
+                'nip' => $employee->nip,
                 'email' => $employee->email,
                 'original_email' => $employee->email, // untuk cek validasi unique
                 'phone' => $employee->phone,
@@ -44,6 +45,7 @@ class EmployeeEditForm extends Component
 
         $this->validate([
             'employees.*.name' => 'required',
+            'employees.*.nip' => 'required',
             'employees.*.email' => 'required|email',
             'employees.*.phone' => 'required',
             'employees.*.password' => '',
@@ -79,6 +81,7 @@ class EmployeeEditForm extends Component
 
             $affected += $employeeBeforeUpdated->update([
                 'name' => $employee['name'],
+                'nip' => $employee['nip'],
                 'email' => $employee['email'],
                 'phone' => $employee['phone'],
                 'role_id' => $employee['role_id'],

@@ -9,6 +9,9 @@
 <div class="w-100">
 
     <main class="form-signin w-100 m-auto">
+        <div class="text-center">
+            <img src="{{asset('img/logo_flotim_baru.png') }}" alt="image" class="mx-auto img-thumbnail img-fluid">
+        </div>
         <form method="POST" action="{{ route('auth.login') }}" id="login-form">
             <h1 class="h3 mb-3 fw-normal">Silahkan masuk untuk absensi</h1>
 

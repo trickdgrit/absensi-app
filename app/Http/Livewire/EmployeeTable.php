@@ -154,6 +154,7 @@ final class EmployeeTable extends PowerGridComponent
         return PowerGrid::eloquent()
             ->addColumn('id')
             ->addColumn('name')
+            ->addColumn('nip')
             ->addColumn('email')
             ->addColumn('phone')
             ->addColumn('role', function (User $model) {
@@ -188,6 +189,12 @@ final class EmployeeTable extends PowerGridComponent
                 ->sortable(),
 
             Column::make('Name', 'name', 'users.name')
+                ->searchable()
+                ->makeInputText()
+                ->editOnClick()
+                ->sortable(),
+
+            Column::make('NIP', 'nip', 'users.nip')
                 ->searchable()
                 ->makeInputText()
                 ->editOnClick()

@@ -93,6 +93,7 @@ final class PresenceTable extends PowerGridComponent
         return PowerGrid::eloquent()
             ->addColumn('id')
             ->addColumn('user_name')
+            ->addColumn('nip')
             ->addColumn("presence_date")
             ->addColumn("presence_enter_time")
             ->addColumn("presence_out_time", fn (Presence $model) => $model->presence_out_time ?? '<span class="badge text-bg-danger">Belum Absensi Pulang</span>')
@@ -126,6 +127,11 @@ final class PresenceTable extends PowerGridComponent
             Column::make('Nama', 'user_name')
                 ->searchable()
                 ->makeInputText('users.name')
+                ->sortable(),
+
+            Column::make('NIP', 'nip')
+                ->searchable()
+                ->makeInputText('users.nip')
                 ->sortable(),
 
             Column::make('Tanggal Hadir', 'presence_date')

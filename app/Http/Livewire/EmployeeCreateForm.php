@@ -20,13 +20,13 @@ class EmployeeCreateForm extends Component
         $this->positions = Position::all();
         $this->roles = Role::all();
         $this->employees = [
-            ['name' => '', 'email' => '', 'phone' => '', 'password' => '', 'role_id' => User::USER_ROLE_ID, 'position_id' => $this->positions->first()->id]
+            ['name' => '', 'nip' => '', 'email' => '', 'phone' => '', 'password' => '', 'role_id' => User::USER_ROLE_ID, 'position_id' => $this->positions->first()->id]
         ];
     }
 
     public function addEmployeeInput(): void
     {
-        $this->employees[] = ['name' => '', 'email' => '', 'phone' => '', 'password' => '', 'role_id' => User::USER_ROLE_ID, 'position_id' => $this->positions->first()->id];
+        $this->employees[] = ['name' => '', 'nip' => 'nip', 'email' => '', 'phone' => '', 'password' => '', 'role_id' => User::USER_ROLE_ID, 'position_id' => $this->positions->first()->id];
     }
 
     public function removeEmployeeInput(int $index): void
@@ -46,6 +46,7 @@ class EmployeeCreateForm extends Component
         // karena nanti akan difilter apakah input kedua dan input selanjutnya apakah berisi
         $this->validate([
             'employees.*.name' => 'required',
+            'employees.*.nip' => 'required',
             'employees.*.email' => 'required|email|unique:users,email',
             'employees.*.phone' => 'required|unique:users,phone',
             'employees.*.password' => '',
